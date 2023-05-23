@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A Basic flask app with internationalized support."""
+"""A Basic flask app."""
 from flask_babel import Babel
 from flask import Flask, render_template, request
 
@@ -20,7 +20,7 @@ babel = Babel(app)
 @babel.localselector
 def get_locale() -> str:
     """Retrieves the locale for a web page."""
-    return request.accept_languages.best_match(App.config["LANGUAGES"])
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
 @app.route('/')
